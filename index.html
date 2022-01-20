@@ -52,6 +52,10 @@
           setTimeout(function() {
             document.querySelector('.ios').classList.add('opacity-100');
           }, 1000);
+          
+          document.querySelector('.ios').addEventListener("click", function(event) {
+            this.classList.add('hidden');
+          });
         }
       });
     </script>
