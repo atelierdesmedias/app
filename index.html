@@ -7,6 +7,16 @@
     <title>ADM</title>
     <meta name="description" content="Liens ADM">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @layer components {
+        .btn {
+          @apply rounded-md shadow;
+        }
+        .btn a {
+          @apply w-full flex items-center justify-center px-6 py-1 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-2 md:text-lg md:px-8;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="text-center">
@@ -19,9 +29,8 @@
             Intranet
           </a>
         </div>
-        <div class="rounded-md shadow">
-          <a href="https://mobile.element.io?hs_url=https%3A%2F%2Fmatrix.atelier-medias.org%2F&is_url=https%3A%2F%2Fvector.im%2F"
-             class="w-full flex items-center justify-center px-6 py-1 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-2 md:text-lg md:px-8">
+        <div class="btn">
+          <a href="https://mobile.element.io?hs_url=https%3A%2F%2Fmatrix.atelier-medias.org%2F&is_url=https%3A%2F%2Fvector.im%2F">
             Ouvrir le chat
           </a>
         </div>
