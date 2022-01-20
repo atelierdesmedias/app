@@ -34,6 +34,20 @@
           background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%23eeebf3' fill-opacity='0.4'%3E%3Cpolygon fill-rule='evenodd' points='8 4 12 6 8 8 6 12 4 8 0 6 4 4 6 0 8 4'/%3E%3C/g%3E%3C/svg%3E");
         }
     </style>
+    <script>
+      // Detects if device is on iOS 
+      const isIos = () => {
+        const userAgent = window.navigator.userAgent.toLowerCase();
+        return /iphone|ipad|ipod/.test( userAgent );
+      }
+      // Detects if device is in standalone mode
+      const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
+
+      // Checks if should display install popup notification:
+      if (isIos() && !isInStandaloneMode()) {
+        this.setState({ showInstallMessage: true });
+      }
+    </script>
   </head>
   <body class="m-4">
     <div class="text-center">
@@ -71,5 +85,6 @@
         </div>
       </div>
     </div>
+    <div class="fixed bottom-0 left-0 w-full m-2 rounded-md bg-slate-300">Installez cette webapp sur votre iPhone : appuyez sur [^] puis sur le bouton "Sur l'écran d'accueil [+]"</div>
   </body>
 </html>
