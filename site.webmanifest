@@ -2,6 +2,7 @@
     "name": "Atelier des Médias",
     "short_name": "ADM",
     "start_url": "/",
+    "scope": "/",
     "description": "Liens vers les sites et outils de l'ADM",
     "icons": [
         {
