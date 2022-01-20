@@ -48,7 +48,8 @@
         if (isIos() && !isInStandaloneMode()) {
           setTimeout(function() {
             document.querySelector('body').classList.add('mb-32');
-            document.querySelector('.ios').classList.remove('hidden', 'opacity-0');
+            document.querySelector('.ios').classList.remove('hidden');
+            document.querySelector('.ios').classList.add('opacity-100');
           }, 1500);
         }
       });
