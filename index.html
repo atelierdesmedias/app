@@ -46,7 +46,10 @@
 
         // Checks if should display install popup notification:
         if (isIos() && !isInStandaloneMode()) {
-          document.querySelector('.ios').classList.remove('hidden', 'opacity-0');
+          setTimeout(function() {
+            document.querySelector('body').classList.add('mb-32');
+            document.querySelector('.ios').classList.remove('hidden', 'opacity-0');
+          }, 1500);
         }
       });
     </script>
