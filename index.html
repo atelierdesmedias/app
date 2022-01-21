@@ -36,7 +36,7 @@
     </style>
     <script>
       document.addEventListener("DOMContentLoaded", function(event) {
-        // Detects if device is on iOS 
+        // Detects if device is on iOS
         const isIos = () => {
           const userAgent = window.navigator.userAgent.toLowerCase();
           return /iphone|ipad|ipod/.test( userAgent );
@@ -48,11 +48,11 @@
         if (isIos() && !isInStandaloneMode()) {
           document.querySelector('body').classList.add('mb-28');
           document.querySelector('.ios').classList.remove('hidden');
-          
+
           setTimeout(function() {
             document.querySelector('.ios').classList.add('opacity-100');
           }, 1000);
-          
+
           document.querySelector('.ios').addEventListener("click", function(event) {
             this.classList.add('hidden');
             document.querySelector('body').classList.remove('mb-28');
@@ -76,7 +76,7 @@
           </a>
         </div>
         <div class="btn">
-          <a href="https://mobile.element.io?hs_url=https%3A%2F%2Fmatrix.atelier-medias.org%2F&is_url=https%3A%2F%2Fvector.im%2F" class="bg-[#03B381] hover:bg-[#058F67]">
+          <a href="https://mobile.element.io?hs_url=https%3A%2F%2Fmatrix.atelier-medias.org%2F" class="bg-[#03B381] hover:bg-[#058F67]">
             Chat (Element)
           </a>
         </div>
