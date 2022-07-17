@@ -34,7 +34,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", function(event) {
         // try to launch app
-        window.location = 'element://vector/webapp/';
+        window.location = 'element://connect';
 
         // handle copying of server URL
         const copy = document.getElementById('copy');
@@ -53,7 +53,7 @@
         // Detects if device is on Windows
         const isWindows = () => {
           const userAgent = window.navigator.userAgent.toLowerCase();
-          return /windows/.test( userAgent );
+          return /win/.test( userAgent );
         }
         // Detects if device is on Linux
         const isLinux = () => {
@@ -75,14 +75,14 @@
 
         if (isMac()) {
             sysclass = '.mac';
-        } else if (isWindows()) {
-            sysclass = '.windows';
-        } else if (isLinux()) {
-            sysclass = '.linux';
         } else if (isIos()) {
             sysclass = '.ios';
         } else if (isAndroid()) {
             sysclass = '.android';
+        } else if (isLinux()) {
+            sysclass = '.linux';
+        } else if (isWindows()) {
+            sysclass = '.windows';
         }
 
         document.querySelectorAll(sysclass).forEach((el) => {
@@ -132,7 +132,7 @@
             <i class="fa-solid fa-copy ml-1 cursor-pointer text-emerald-500 font-bold" id="copy" title="Copier"></i>
         </p>
         <div class="text-center flex flex-col my-4">
-            <a href="element://vector/webapp/" target="_blank" class="self-center btn">
+            <a href="element://connect" target="_blank" class="self-center btn">
                 Lancer Element
             </a>
         </div>
