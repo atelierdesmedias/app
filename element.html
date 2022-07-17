@@ -34,7 +34,9 @@
     <script>
       document.addEventListener("DOMContentLoaded", function(event) {
         // try to launch app
-        window.location = 'element://room';
+        setTimeout(() => {
+          window.location = 'element://room';
+        }, 100);
 
         // handle copying of server URL
         const copy = document.getElementById('copy');
