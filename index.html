@@ -18,6 +18,7 @@
     <meta name="theme-color" content="#ffffff">
     <script src="https://kit.fontawesome.com/ac5688d412.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style type="text/tailwindcss">
       @layer components {
         .btn {
@@ -36,7 +37,7 @@
     </style>
     <script>
       document.addEventListener("DOMContentLoaded", function(event) {
-        // Detects if device is on iOS 
+        // Detects if device is on iOS
         const isIos = () => {
           const userAgent = window.navigator.userAgent.toLowerCase();
           return /iphone|ipad|ipod/.test( userAgent );
@@ -48,16 +49,25 @@
         if (isIos() && !isInStandaloneMode()) {
           document.querySelector('body').classList.add('mb-28');
           document.querySelector('.ios').classList.remove('hidden');
-          
+
           setTimeout(function() {
             document.querySelector('.ios').classList.add('opacity-100');
           }, 1000);
-          
+
           document.querySelector('.ios').addEventListener("click", function(event) {
             this.classList.add('hidden');
             document.querySelector('body').classList.remove('mb-28');
           });
         }
+        $(".element-btn").click(function(e) {
+          var el = $(this);
+          setTimeout(function() {
+            window.location = el.attr("data-href-alt");
+          }, 5000);
+          // once you do the custom-uri, it should properly execute the handler, otherwise, the settimeout that you set before will kick in
+          window.location = el.attr("href");
+          e.preventDefault();
+        });
       });
     </script>
   </head>
@@ -70,13 +80,13 @@
             <i class="fa-brands fa-wikipedia-w mr-1"></i> Intranet
           </a>
         </div>
-        <div class="btn lg:hidden">
-          <a href="https://mobile.element.io?hs_url=https%3A%2F%2Fmatrix.atelier-medias.org%2F&is_url=https%3A%2F%2Fvector.im%2F" class="bg-[#03B381] hover:bg-[#058F67]">
+        <div class="btn lg:hidden" data-href-alt="https://mobile.element.io">
+          <a href="element://start" href="https://app.element.io" class="element-btn bg-[#03B381] hover:bg-[#058F67]">
             <i class="fa-solid fa-message mr-2"></i> Chat (Element)
           </a>
         </div>
         <div class="btn hidden lg:block">
-          <a href="https://app.element.io?hs_url=https%3A%2F%2Fmatrix.atelier-medias.org%2F&is_url=https%3A%2F%2Fvector.im%2F" class="bg-[#03B381] hover:bg-[#058F67]">
+          <a href="element://start" data-href-alt="https://app.element.io" class="element-btn bg-[#03B381] hover:bg-[#058F67]">
             <i class="fa-solid fa-message mr-2"></i> Chat (Element)
           </a>
         </div>
