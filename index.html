@@ -67,23 +67,21 @@
         // on click on Element button
         const element = document.getElementById('element');
         element.addEventListener("click", function(event) {
-          let url = 'element://vector/webapp/';
-          let script = document.createElement('script'); 
-          script.onload = function() { // launch app if installed
-            document.location = url;
-          } 
-          script.onerror = function() {
-            // fallback if the app is not installed.
+            let url = 'element://vector/webapp/';
+            // desktop fallback if the app is not installed.
+            let fallback = 'https://app.element.io';
             if (isIos()) {
-              document.location = 'https://itunes.apple.com/app/riot-im/id1083446067?mt=8';
+                fallback = 'https://itunes.apple.com/app/riot-im/id1083446067?mt=8';
             } else if (isAndroid()) {
-              document.location = 'https://play.google.com/store/apps/details?id=im.vector.app';
-            } else { // desktop
-              document.location = 'https://app.element.io';
+                fallback = 'https://play.google.com/store/apps/details?id=im.vector.app';
             }
-          }
-          script.setAttribute('src', url); 
-          document.getElementsByTagName('head')[0].appendChild(script);
+
+            window.location = url;
+            setTimeout(function() {
+                if (window.confirm("L'application n'est peut-être pas installée.\nVoulez-vous installer Element ?")) {
+                    window.location = fallback;
+                }
+            }, 1000);
         });
       });
     </script>
