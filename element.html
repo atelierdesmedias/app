@@ -50,7 +50,7 @@
         // Detects if device is on Mac
         const isMac = () => {
           const userAgent = window.navigator.userAgent.toLowerCase();
-          return /macintosh/.test( userAgent );
+          return /macintosh|macos|mac os/.test( userAgent );
         }
         // Detects if device is on Windows
         const isWindows = () => {
@@ -65,7 +65,7 @@
         // Detects if device is on Android
         const isAndroid = () => {
           const userAgent = window.navigator.userAgent.toLowerCase();
-          return /android/.test( userAgent );
+          return /android|silk/.test( userAgent );
         }
         // Detects if device is on iOS
         const isIos = () => {
@@ -75,10 +75,10 @@
 
         let sysclass = '.hidden';
 
-        if (isMac()) {
-            sysclass = '.mac';
-        } else if (isIos()) {
+        if (isIos()) {
             sysclass = '.ios';
+        } else if (isMac()) {
+            sysclass = '.mac';
         } else if (isAndroid()) {
             sysclass = '.android';
         } else if (isLinux()) {
