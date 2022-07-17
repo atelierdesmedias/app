@@ -18,7 +18,6 @@
     <meta name="theme-color" content="#ffffff">
     <script src="https://kit.fontawesome.com/ac5688d412.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style type="text/tailwindcss">
       @layer components {
         .btn {
@@ -37,6 +36,11 @@
     </style>
     <script>
       document.addEventListener("DOMContentLoaded", function(event) {
+        // Detects if device is on Android
+        const isAndroid = () => {
+          const userAgent = window.navigator.userAgent.toLowerCase();
+          return /android/.test( userAgent );
+        }
         // Detects if device is on iOS
         const isIos = () => {
           const userAgent = window.navigator.userAgent.toLowerCase();
@@ -59,14 +63,22 @@
             document.querySelector('body').classList.remove('mb-28');
           });
         }
-        $(".element-btn").click(function(e) {
-          var el = $(this);
+
+        // on click on Element button
+        const element = document.getElementById('element');
+        element.addEventListener("click", function(event) {
           setTimeout(function() {
-            window.location = el.attr("data-href-alt");
-          }, 5000);
-          // once you do the custom-uri, it should properly execute the handler, otherwise, the settimeout that you set before will kick in
-          window.location = el.attr("href");
-          e.preventDefault();
+            // fallback if the app is not installed.
+            if (isIos()) {
+              window.location = 'https://itunes.apple.com/app/riot-im/id1083446067?mt=8';
+            } else if (isAndroid()) {
+              window.location = 'https://play.google.com/store/apps/details?id=im.vector.app';
+            } else {
+              // desktop
+              window.location = 'https://app.element.io';
+            }
+          }, 25);
+          window.location = 'element://vector/webapp/';
         });
       });
     </script>
@@ -86,7 +98,7 @@
           </a>
         </div>
         <div class="btn hidden lg:block">
-          <a href="element://start" data-href-alt="https://app.element.io" class="element-btn bg-[#03B381] hover:bg-[#058F67]">
+          <a href="#" id="element" class="element-btn bg-[#03B381] hover:bg-[#058F67]">
             <i class="fa-solid fa-message mr-2"></i> Chat (Element)
           </a>
         </div>
