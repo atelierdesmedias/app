@@ -67,9 +67,10 @@
         // on click on Element button
         const element = document.getElementById('element');
         element.addEventListener("click", function(event) {
-          var script = document.createElement('script'); 
+          let url = 'element://vector/webapp/';
+          let script = document.createElement('script'); 
           script.onload = function() { // launch app if installed
-            document.location = 'element://vector/webapp/';
+            document.location = url;
           } 
           script.onerror = function() {
             // fallback if the app is not installed.
