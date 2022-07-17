@@ -67,18 +67,22 @@
         // on click on Element button
         const element = document.getElementById('element');
         element.addEventListener("click", function(event) {
-          setTimeout(function() {
+          var script = document.createElement('script'); 
+          script.onload = function() { // launch app if installed
+            document.location = 'element://vector/webapp/';
+          } 
+          script.onerror = function() {
             // fallback if the app is not installed.
             if (isIos()) {
-              window.location = 'https://itunes.apple.com/app/riot-im/id1083446067?mt=8';
+              document.location = 'https://itunes.apple.com/app/riot-im/id1083446067?mt=8';
             } else if (isAndroid()) {
-              window.location = 'https://play.google.com/store/apps/details?id=im.vector.app';
-            } else {
-              // desktop
-              window.location = 'https://app.element.io';
+              document.location = 'https://play.google.com/store/apps/details?id=im.vector.app';
+            } else { // desktop
+              document.location = 'https://app.element.io';
             }
-          }, 25);
-          window.location = 'element://vector/webapp/';
+          }
+          script.setAttribute('src', url); 
+          document.getElementsByTagName('head')[0].appendChild(script);
         });
       });
     </script>
@@ -92,12 +96,7 @@
             <i class="fa-brands fa-wikipedia-w mr-1"></i> Intranet
           </a>
         </div>
-        <div class="btn lg:hidden" data-href-alt="https://mobile.element.io">
-          <a href="element://start" href="https://app.element.io" class="element-btn bg-[#03B381] hover:bg-[#058F67]">
-            <i class="fa-solid fa-message mr-2"></i> Chat (Element)
-          </a>
-        </div>
-        <div class="btn hidden lg:block">
+        <div class="btn">
           <a href="#" id="element" class="element-btn bg-[#03B381] hover:bg-[#058F67]">
             <i class="fa-solid fa-message mr-2"></i> Chat (Element)
           </a>
