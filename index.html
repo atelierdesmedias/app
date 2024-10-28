@@ -1,22 +1,31 @@
 <!doctype html>
 <html lang="fr-FR">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name='robots' content='noindex, nofollow'>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="robots" content="noindex, nofollow" />
     <title>Atelier des Medias - Liens</title>
-    <meta name="description" content="Liens vers les sites, réseaux sociaux et outils de l'ADM">
+    <meta
+      name="description"
+      content="Liens vers les sites, réseaux sociaux et outils de l'ADM"
+    />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0d2f39">
-    <meta name="apple-mobile-web-app-title" content="ADM">
-    <meta name="application-name" content="ADM">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff">
-    <script src="https://kit.fontawesome.com/ac5688d412.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0d2f39" />
+    <meta name="apple-mobile-web-app-title" content="ADM" />
+    <meta name="application-name" content="ADM" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
+    <script
+      src="https://kit.fontawesome.com/ac5688d412.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style type="text/tailwindcss">
       @layer components {
@@ -31,117 +40,199 @@
     <style type="text/css">
       body {
         background-color: #ffffff;
-        background: linear-gradient(135deg, #fcfcff55 25%, transparent 25%) -11px 0/ 22px 22px, linear-gradient(225deg, #fcfcff 25%, transparent 25%) -11px 0/ 22px 22px, linear-gradient(315deg, #fcfcff55 25%, transparent 25%) 0px 0/ 22px 22px, linear-gradient(45deg, #fcfcff 25%, #ffffff 25%) 0px 0/ 22px 22px;
+        background:
+          linear-gradient(135deg, #fcfcff55 25%, transparent 25%) -11px 0/ 22px
+            22px,
+          linear-gradient(225deg, #fcfcff 25%, transparent 25%) -11px 0/ 22px
+            22px,
+          linear-gradient(315deg, #fcfcff55 25%, transparent 25%) 0px 0/ 22px 22px,
+          linear-gradient(45deg, #fcfcff 25%, #ffffff 25%) 0px 0/ 22px 22px;
       }
     </style>
     <script>
-      document.addEventListener("DOMContentLoaded", function(event) {
+      document.addEventListener("DOMContentLoaded", function (event) {
         // Detects if device is on Android
         const isAndroid = () => {
           const userAgent = window.navigator.userAgent.toLowerCase();
-          return /android/.test( userAgent );
-        }
+          return /android/.test(userAgent);
+        };
         // Detects if device is on iOS
         const isIos = () => {
           const userAgent = window.navigator.userAgent.toLowerCase();
-          return /iphone|ipad|ipod/.test( userAgent );
-        }
+          return /iphone|ipad|ipod/.test(userAgent);
+        };
         // Detects if device is in standalone mode
-        const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
+        const isInStandaloneMode = () =>
+          "standalone" in window.navigator && window.navigator.standalone;
 
         // Checks if should display install popup notification:
         if (isIos() && !isInStandaloneMode()) {
-          document.querySelector('body').classList.add('mb-28');
-          document.querySelector('.ios').classList.remove('hidden');
+          document.querySelector("body").classList.add("mb-28");
+          document.querySelector(".ios").classList.remove("hidden");
 
-          setTimeout(function() {
-            document.querySelector('.ios').classList.add('opacity-100');
+          setTimeout(function () {
+            document.querySelector(".ios").classList.add("opacity-100");
           }, 1000);
 
-          document.querySelector('.ios').addEventListener("click", function(event) {
-            this.classList.add('hidden');
-            document.querySelector('body').classList.remove('mb-28');
-          });
+          document
+            .querySelector(".ios")
+            .addEventListener("click", function (event) {
+              this.classList.add("hidden");
+              document.querySelector("body").classList.remove("mb-28");
+            });
         }
 
         // on click on Element button
-        const element = document.getElementById('element');
-        element.addEventListener("click", function(event) {
-            let url = 'element://vector/webapp/';
-            // desktop fallback if the app is not installed.
-            let fallback = 'https://app.element.io';
-            if (isIos()) {
-                fallback = 'https://itunes.apple.com/app/riot-im/id1083446067?mt=8';
-            } else if (isAndroid()) {
-                fallback = 'https://play.google.com/store/apps/details?id=im.vector.app';
-            }
+        const element = document.getElementById("element");
+        element.addEventListener("click", function (event) {
+          let url = "element://vector/webapp/";
+          // desktop fallback if the app is not installed.
+          let fallback = "https://app.element.io";
+          if (isIos()) {
+            fallback = "https://itunes.apple.com/app/riot-im/id1083446067?mt=8";
+          } else if (isAndroid()) {
+            fallback =
+              "https://play.google.com/store/apps/details?id=im.vector.app";
+          }
 
-            window.location = url;
-            setTimeout(function() {
-                if (window.confirm("L'application n'est peut-être pas installée.\nVoulez-vous installer Element ?")) {
-                    window.location = fallback;
-                }
-            }, 1000);
+          window.location = url;
+          setTimeout(function () {
+            if (
+              window.confirm(
+                "L'application n'est peut-être pas installée.\nVoulez-vous installer Element ?",
+              )
+            ) {
+              window.location = fallback;
+            }
+          }, 1000);
         });
       });
     </script>
   </head>
   <body class="m-4">
     <div class="text-center">
-      <img src="/atelier-des-medias-squared.png" width="176" height="176" alt="Atelier des Médias" class="mx-auto my-6">
+      <img
+        src="/atelier-des-medias-squared.png"
+        width="176"
+        height="176"
+        alt="Atelier des Médias"
+        class="mx-auto my-6"
+      />
       <div class="mt-6 max-w-sm mx-auto flex flex-col gap-4">
         <div class="btn">
-          <a href="https://intra.atelier-medias.org/" rel="noreferrer" target="_blank" class="bg-sky-600 hover:bg-sky-700">
+          <a
+            href="https://intra.atelier-medias.org/"
+            rel="noreferrer"
+            target="_blank"
+            class="bg-sky-600 hover:bg-sky-700"
+          >
             <i class="fa-brands fa-wikipedia-w mr-1"></i>L'Intranet
           </a>
         </div>
         <div class="btn">
-          <a href="element.html" class="element-btn bg-[#03B381] hover:bg-[#058F67]">
+          <a
+            href="element.html"
+            class="element-btn bg-[#03B381] hover:bg-[#058F67]"
+          >
             <i class="fa-solid fa-message mr-2"></i>Le Chat
           </a>
         </div>
-        <hr>
+        <hr />
         <div class="btn">
-          <a href="https://intra.atelier-medias.org/xwiki/bin/view/MoccaCalendar/SalleReunion/" rel="noreferrer" target="_blank" class="bg-rose-400 hover:bg-rose-500">
+          <a
+            href="https://intra.atelier-medias.org/xwiki/bin/view/MoccaCalendar/SalleReunion/"
+            rel="noreferrer"
+            target="_blank"
+            class="bg-rose-400 hover:bg-rose-500"
+          >
             <i class="fa-solid fa-calendar mr-2"></i>La Salle de réunion
           </a>
         </div>
         <div class="btn">
-          <a href="https://intra.atelier-medias.org/xwiki/bin/view/MoccaCalendar/Box/" rel="noreferrer" target="_blank" class="bg-green-400 hover:bg-lime-500">
+          <a
+            href="https://intra.atelier-medias.org/xwiki/bin/view/MoccaCalendar/Box/"
+            rel="noreferrer"
+            target="_blank"
+            class="bg-green-400 hover:bg-lime-500"
+          >
             <i class="fa-solid fa-calendar mr-2"></i>Le Bocal
           </a>
         </div>
         <div class="btn">
-          <a href="https://intra.atelier-medias.org/xwiki/bin/view/MoccaCalendar/Cabine/" rel="noreferrer" target="_blank" class="bg-orange-400 hover:bg-orange-500">
+          <a
+            href="https://intra.atelier-medias.org/xwiki/bin/view/MoccaCalendar/Cabine/"
+            rel="noreferrer"
+            target="_blank"
+            class="bg-orange-400 hover:bg-orange-500"
+          >
             <i class="fa-solid fa-calendar mr-2"></i>La Cabine
           </a>
         </div>
         <div class="btn">
-          <a href="https://intra.atelier-medias.org/xwiki/bin/view/MoccaCalendar/Ev%C3%A9nements%20ext%C3%A9rieurs/" rel="noreferrer" target="_blank" class="bg-[#1877F2] hover:bg-[#1660BF]">
+          <a
+            href="https://intra.atelier-medias.org/xwiki/bin/view/MoccaCalendar/Ev%C3%A9nements%20ext%C3%A9rieurs/"
+            rel="noreferrer"
+            target="_blank"
+            class="bg-[#1877F2] hover:bg-[#1660BF]"
+          >
             <i class="fa-solid fa-calendar mr-2"></i>Les Evènements
           </a>
         </div>
       </div>
       <div class="mt-6 mx-auto text-xl">
-        <a href="https://www.atelier-medias.org/" rel="noreferrer" target="_blank" class="mx-2">
-          <img src="./globe.png?v1" width="24" height="24" class="inline-block align-sub">
+        <a
+          href="https://www.atelier-medias.org/"
+          rel="noreferrer"
+          target="_blank"
+          class="mx-2"
+        >
+          <img
+            src="./globe.png?v1"
+            width="24"
+            height="24"
+            class="inline-block align-sub"
+          />
         </a>
-        <a href="https://www.facebook.com/Coworkinglyon" rel="noreferrer" target="_blank" class="mx-2 text-[#1877F2] hover:text-[#1660BF]">
+        <a
+          href="https://www.facebook.com/Coworkinglyon"
+          rel="noreferrer"
+          target="_blank"
+          class="mx-2 text-[#1877F2] hover:text-[#1660BF]"
+        >
           <i class="fa-brands fa-facebook-f"></i>
         </a>
-        <a href="https://twitter.com/coworkinglyon" rel="noreferrer" target="_blank" class="mx-2 text-[#1DA1F2] hover:text-[#137FC2]">
+        <a
+          href="https://twitter.com/coworkinglyon"
+          rel="noreferrer"
+          target="_blank"
+          class="mx-2 text-[#1DA1F2] hover:text-[#137FC2]"
+        >
           <i class="fa-brands fa-twitter"></i>
         </a>
-        <a href="https://www.linkedin.com/company/l-atelier-des-m%C3%A9dias-coworking-lyon/" rel="noreferrer" target="_blank" class="mx-2 text-[#0e76a8] hover:text-[#185a7a]">
+        <a
+          href="https://www.linkedin.com/company/l-atelier-des-m%C3%A9dias-coworking-lyon/"
+          rel="noreferrer"
+          target="_blank"
+          class="mx-2 text-[#0e76a8] hover:text-[#185a7a]"
+        >
           <i class="fa-brands fa-linkedin-in"></i>
         </a>
-        <a href="https://www.instagram.com/atelierdesmedias_lyon/?hl=fr" rel="noreferrer" target="_blank" class="mx-2 text-[#F56040] hover:text-[#CC4B2F]">
+        <a
+          href="https://www.instagram.com/atelierdesmedias_lyon/?hl=fr"
+          rel="noreferrer"
+          target="_blank"
+          class="mx-2 text-[#F56040] hover:text-[#CC4B2F]"
+        >
           <i class="fa-brands fa-instagram"></i>
         </a>
       </div>
     </div>
-    <div class="ios hidden fixed transition-opacity duration-500 opacity-0 bottom-0 left-0 right-0 m-2 rounded-md bg-neutral-500 p-2 text-center text-white">
-      Installez cette webapp sur votre iPhone&nbsp;: appuyez sur <img src="/safari-share.png?v1" class="inline-block mx-1" width="16"> puis &quot;Sur l'écran d'accueil&quot;
+    <div
+      class="ios hidden fixed transition-opacity duration-500 opacity-0 bottom-0 left-0 right-0 m-2 rounded-md bg-neutral-500 p-2 text-center text-white"
+    >
+      Installez cette webapp sur votre iPhone&nbsp;: appuyez sur
+      <img src="/safari-share.png?v1" class="inline-block mx-1" width="16" />
+      puis &quot;Sur l'écran d'accueil&quot;
     </div>
   </body>
 </html>
